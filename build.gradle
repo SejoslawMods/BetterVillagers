@@ -1,0 +1,68 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+//Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
+
+version = mc_version + '-' + version_major + '.' + version_minor + '.' + version_patch + '.' + version_build
+group = "kd.bettervillagers.BetterVillagers" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "BetterVillagers"
+
+sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = mc_version + "-" + forge_version
+    runDir = "run"
+    mappings = mcp_mapping
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+    replaceIn "BetterVillagers.java"
+    replace "@VERSION@", project.version
+}
+
+processResources {
+    // this will ensure that this task is redone when the versions change.
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    // replace stuff in mcmod.info, nothing else
+    from(sourceSets.main.resources.srcDirs) 
+    {
+        include 'mcmod.info'
+        include 'Trades.json'
+                
+        // replace version and mcversion
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    // copy everything else, thats not the mcmod.info
+    from(sourceSets.main.resources.srcDirs) 
+    {
+        exclude 'mcmod.info'
+        exclude '**/*.md'
+    }
+}
+
+task sourcesJarCode(type: Jar) {
+    from sourceSets.main.allSource
+    include 'kd/bettervillagers/**'
+    classifier = 'sourcesCode'
+}
+
+task sourcesJarDeobf(type: Jar) {
+    from zipTree('build/retromapping/retromappedReplacedMain.jar')
+    classifier = 'sourcesDeobf'
+}
+
+artifacts {
+    archives sourcesJarCode
+    archives sourcesJarDeobf
+}

@@ -1,0 +1,16 @@
+[
+{
+	"Profession":5,
+	"Career":1,
+	"Trading":[{
+	   "Level":1,
+	   "Trades":{
+            "trade_1_comment":"If there is '_comment' in name it won't be read and You can add some informations here - maybe details about trade for easier remembering what is what. Also '_comment' is used by default, You can change it in configuration file.",
+            "trade_1_comment_1":"structure looks like this -> number x item:id + number x item:id = number x item:id",
+            "trade_1_comment_2":"1xGranite + 1xPodzol = 7xFern",
+            "trade_1":"1x1:1 + 1x3:2 = 7x31:2",
+            "trade_2":"3xminecraft:stone + 5xminecraft:stone_pressure_plate = 1xminecraft:lit_pumpkin"
+        }
+	}]
+}
+]

@@ -1,0 +1,16 @@
+[
+{
+  "modid": "bettervillagers",
+  "name": "Better Villagers",
+  "description": "Adds custom trades for various villagers. Works with villagers from other mods.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Reksi0"],
+  "credits": "Reksi0",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
