@@ -9,8 +9,11 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 
-/*
+/**
  * Contains stuff related with custom command to reload custom trades.
+ * 
+ * @author Krzysztof "Sejoslaw" Dobrzynski
+ *
  */
 public class RefreshTradesCommand implements ICommand {
 

@@ -29,6 +29,13 @@ public class BetterVillagers {
 		LOGGER = event.getModLog();
 		BVConfig.preInit(event);
 		log(Level.INFO, "Starting Better Villagers...");
+
+		if (BVConfig.REMOVE_DEFAULT_TRADES) {
+			log(Level.INFO, "Removing default trades...");
+			BVDefaultTrades.removeDefaultTrades();
+			log(Level.INFO, "Default trades removed.");
+		}
+
 		BVTradesStorage.refreshTrades();
 		log(Level.INFO, "Custom trades loaded.");
 	}

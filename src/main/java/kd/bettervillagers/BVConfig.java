@@ -15,8 +15,11 @@ import org.apache.logging.log4j.Level;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-/*
+/**
  * Contains stuff related with mod configuration file.
+ * 
+ * @author Krzysztof "Sejoslaw" Dobrzynski
+ *
  */
 public class BVConfig {
 
@@ -26,6 +29,7 @@ public class BVConfig {
 	public static Configuration CONFIG;
 	public static String COMMENT;
 	public static String TRADES_FILENAME;
+	public static boolean REMOVE_DEFAULT_TRADES;
 
 	public static final String TRADES_FILE_NAME = "Trades.json";
 	public static final String BETTER_VILLAGERS_CFG = "BetterVillagers.cfg";
@@ -47,6 +51,7 @@ public class BVConfig {
 		CONFIG = new Configuration(CONFIG_FILE);
 		CONFIG.load();
 		processConfig();
+		CONFIG.save();
 	}
 
 	private static void processConfig() throws FileNotFoundException {
@@ -56,5 +61,8 @@ public class BVConfig {
 
 		COMMENT = CONFIG.getString("Comment", "Comment", "_comment",
 				"Any key which contains this value in name will be ignored while reading custom trades.");
+
+		REMOVE_DEFAULT_TRADES = CONFIG.getBoolean("Remove defaults", "Remove defaults", REMOVE_DEFAULT_TRADES,
+				"True / False value which describes if the default villagers trades should be removed");
 	}
 }

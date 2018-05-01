@@ -11,6 +11,13 @@ import java.util.jar.JarFile;
 
 import org.apache.logging.log4j.Level;
 
+/**
+ * Unzips files from mods JAR file or /bin/ if in testing environment, directly
+ * into config directory.
+ * 
+ * @author Krzysztof "Sejoslaw" Dobrzynski
+ *
+ */
 public class FileUnzipper {
 
 	private File _modConfigurationDirectory;

@@ -8,8 +8,11 @@ import net.minecraft.entity.passive.EntityVillager.ITradeList;
 import net.minecraft.village.MerchantRecipe;
 import net.minecraft.village.MerchantRecipeList;
 
-/*
+/**
  * Contains specified custom recipes.
+ * 
+ * @author Krzysztof "Sejoslaw" Dobrzynski
+ *
  */
 public class BetterVillagersTradeList implements ITradeList {
 

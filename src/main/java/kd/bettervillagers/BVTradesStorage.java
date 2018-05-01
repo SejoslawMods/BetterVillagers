@@ -24,8 +24,11 @@ import net.minecraftforge.fml.common.registry.VillagerRegistry;
 import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerCareer;
 import net.minecraftforge.fml.common.registry.VillagerRegistry.VillagerProfession;
 
-/*
+/**
  * Main module which is responsible for loading and process custom trades.
+ * 
+ * @author Krzysztof "Sejoslaw" Dobrzynski
+ *
  */
 public class BVTradesStorage {
 
